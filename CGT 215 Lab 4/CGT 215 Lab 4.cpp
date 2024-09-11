@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -15,13 +16,78 @@ void printMenu() {
     cout << "Your Selection: ";
 }
 void factorial() {
-    // I recommend writing your factorial code here
+    int n;
+    cout << "Factorial:" << endl;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    while (n < 0) {
+        cout << "Nice try, please enter a POSITIVE number...: ";
+        cin >> n;
+    }
+
+    long long result = 1;
+    cout << n << "! = ";
+    for (int i = 1; i <= n; ++i) {
+        result *= i;
+        if (i > 1) cout << " * ";
+        cout << i;
+    }
+    cout << " = " << result << endl;
 }
 void arithmetic() {
-    // I recommend writing your arithmetic series code here
+    int start, add, count;
+    cout << "Arithmetic Series:" << endl;
+    cout << "Enter a number to start at: ";
+    cin >> start;
+    cout << "Enter a number to add each time: ";
+    cin >> add;
+    cout << "Enter the number of elements in the series: ";
+    cin >> count;
+
+    while (count < 0) {
+        cout << "Nice try, please enter a POSITIVE number of elements in the series...: ";
+        cin >> count;
+    }
+
+    int sum = 0;
+    cout << start;
+    sum += start;
+
+    for (int i = 1; i < count; ++i) {
+        start += add;
+        sum += start;
+        cout << " + " << start;
+    }
+    cout << " = " << sum << endl;
 }
 void geometric() {
-    // I recommend writing your geometric series code here
+    double start, ratio;
+    int count;
+    cout << "Geometric Series:" << endl;
+    cout << "Enter a number to start at: ";
+    cin >> start;
+    cout << "Enter a number to multiply by each time: ";
+    cin >> ratio;
+    cout << "Enter the number of elements in the series: ";
+    cin >> count;
+
+    while (count < 0) {
+        cout << "Nice try, please enter a POSITIVE number of elements in the series...: ";
+        cin >> count;
+    }
+
+    double sum = 0;
+    double term = start;
+    cout << term;
+    sum += term;
+
+    for (int i = 1; i < count; ++i) {
+        term *= ratio;
+        sum += term;
+        cout << " * " << term;
+    }
+    cout << " = " << sum << endl;
 }
 int main() {
     int choice;
